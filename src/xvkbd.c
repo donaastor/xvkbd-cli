@@ -2272,11 +2272,11 @@ int main(int argc, char *argv[]){
 	if(strlen(appres.text) != 0){
 		appres.keypad_keysym = TRUE;
 		SendString(appres.text);
-		printf("success\n");
+		// printf("success\n");
 		exit(0);
 	}
 	
-	printf("failure\n");
+	// printf("failure\n");
 	
 	exit(1);
 }
