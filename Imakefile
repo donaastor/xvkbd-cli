@@ -41,9 +41,6 @@ ComplexProgramTarget(xvkbd)
 
 InstallAppDefaults(XVkbd)
 
-InstallNonExec(words.english,$(SHAREDIR)/words.english)
-
-
 README:
 	make doc
 
