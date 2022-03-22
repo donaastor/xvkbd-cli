@@ -1,0 +1,464 @@
+Version 0.1 (2000-05-13)
+
+ - The first release, not announced anywhere.
+
+Version 0.2 (2000-09-15)
+
+ - Compose key is added.  In the environments where Compose key
+   is supported, some characters (mainly letters with accent
+   symbol) which can't be entered directly from keyboard can be
+   entered using dedicated key combinations.
+
+ - Make keyboard layout not to be disturbed when window size if
+   specified with -geometry option.
+
+ - Sample app-defaults file is added.
+
+Version 0.3 (2000-10-05)
+
+ - -text option can now accept some modifiers (\S, \C, etc.) and
+   any keysyms (\[keysym]).
+
+ - In addition to the window ID, -window option can now accept
+   window name.
+
+ - New -widget option to specify the widget to set the input
+   focus.
+
+Version 1.0 (2000-11-03)
+
+ - Keyboard layout can be now configured with resources.  See
+   "Customizing Keyboard Layout" above, and XVkbd-german.ad in
+   the distribution.
+
+ - xvkbd can now send keys with Mode_switch (AltGr) modifier,
+   which enables those characters in the position to be entered.
+
+ - xvkbd now support AltGr key so that German (and some other)
+   keyboard layout can be used.  See XVkbd-german.ad in the
+   distribution.
+
+ - XVkbd-german and XVkbd-latin1 are included in the distribution,
+   which modifies keyboard layout and put some non-ASCII keys on
+   the xvkbd window.
+
+ - CapsLock key is supported now.
+
+Version 1.1 (2000-12-23)
+
+ - xvkbd can now use XTEST extension to simulate keyboard events.
+   It can still use XSendEvent(), as it was in the older release.
+   (thanks, Bjoern)
+
+ - Labels on keys can now be set independently for each of four
+   shift states, not shifted, Shift, AltGr and Shift-AltGr.
+   (thanks, Jim)
+
+ - -kterm option and xvkbd.kterm resource are removed.
+
+Version 1.2 (2001-02-18)
+
+ - Focus button is now placed in the main keyboard, too, so that
+   it will be available also in compact mode.  If you don't need
+   it, it can be removed by setting ``xvkbd*row5.Focus.width:
+   1''.
+
+ - Input focus set by Focus button can now be cleard by clicking
+   Focus button twice.  Clicking Focus button with mouse button 3
+   will still clear the input focus, too.
+
+ - Text can now be assigned to function keys (and, actually, to
+   most other keys).
+
+ - It is now possible to assign keys modified with Shift,
+   Control, Alt and Meta on the main keyboard, by putting `s:',
+   `c:', `a:' and `m:' before those keysym name when customizing
+   the keyboard layout.
+
+ - xvkbd now ignores SIGINT and SIGQUIT so that it will not
+   terminated accidently.
+
+Version 1.3 (2001-03-19)
+
+ - New app-defaults file for Swiss-German layout,
+   XVkbd-swissgerman.ad.  (contributed from Marcel Portner)
+
+ - xvkbd now catches MappingNotify event and reload the new
+   mapping.  This allows users to use xmodmap while xvkbd is
+   running.
+
+ - NumLock key is supported now.  (I'd removed Print, ScrLk and
+   Pause from keypad - somebody need them?)
+
+Version 1.4 (2001-04-22)
+
+ - Auto-repeat didn't work when focus was set explicitly via
+   Focus button.  It is now fixed.
+
+ - When required keysym was not defined in the keymap table,
+   xvkbd will now add it on-the-fly.  This means that we don't
+   have to add them via xmodmap.
+
+ - Keypad panel can now be popped up from the main keyboard as a
+   separate window.
+
+ - Sun function keys is now supported.  It can be popped up from
+   the main keyboard as a separate window.
+
+ - Manual page is now available.
+
+Version 1.5 (2001-10-08)
+
+ - Key events can now be sent to windows on a remote display
+   (i.e. windows on other X servers) - use "Connect to Remote
+   Display..." in the main menu to connect to remote display.
+
+ - Shift, Control, Alt and Meta can now be locked - use "Lock
+   Shift?" and "Lock Control, Alt and Meta?"  in the main menu.
+   Those initial settings can be set by xvkbd.shiftLock and
+   xvkbd.modifiersLock resource.
+
+ - If the first keysym for a key is an alphabet and the second
+   keysym is NoSymbol, it is now interpreted as if the first
+   keysym is lowercase alphabet and the second keysym is
+   upper-case alphabet.  Keymap may be defined in this way in
+   some systems including Solaris, and older xvkbd may not work
+   correctly in such situation.
+
+Version 1.6 (2001-11-10)
+
+ - New `-file' option to send characters in the specified file.
+   (thanks, Gregory)
+
+ - New entry `Use XTEST Extension?' is added to the main menu,
+   mainly to indicate the availability of the XTEST extension.
+
+ - xvkbd would crash when the window explicitly focused via Focus
+   button becomes was destroyed.  This problem is now fixed.
+
+Version 2.0 (2001-12-09)
+
+ - Keyboard layout (default, German, French, etc.) can now be
+   changed after xvkbd is invoked.
+
+ - Show/hide of the keypad and funcion keys on the main window
+   can now be toggled from the main menu.
+
+ - New app-defaults file for French layout, XVkbd-french.ad.
+   (contributed from Jean-Pierre Demailly)
+
+Version 2.1 (2002-01-27)
+
+ - When height of the xvkbd window is smaller than
+   XVkbd.modalThreshold, xvkbd will now automatically switch the
+   keytop as if -modal option was specified.
+
+ - \[keysym] in -text option would send wrong keys - this problem
+   is now fixed.
+
+ - Target distclean in the Imakefile is renamed to avoid the pos-
+   sible confusion on some systems.
+
+ - Word completion is now supported.
+
+Version 2.2 (2002-03-17)
+
+ - String assigned to function keys can now be edited on a panel
+   popped up via "Edit Function Keys..." in the main menu.
+
+ - When ``-'' was specified as the filename parameter for -file
+   option, xvkbd will now read its standard input (stdin) to get
+   the string to be sent.
+
+ - In the previous release, less-portable setenv() function was
+   used instead of putenv() function, may cause compilation error
+   on some systems including Solaris.
+
+Version 2.3 (2002-04-05)
+
+ - New "Dead Keys" panel added.  Which can be used to enter Latin
+   characters with accent symbol in double stroke.
+
+ - More localized keyboard layout: Belgian, Danish, French,
+   German, Icelandic, Italian, Japanese (JIS-X-6004), Norwegian,
+   Portuguese, Spanish, Swedish, Swiss/German, United Kingdom and
+   Latin-1.
+
+ - -keypad option would crash previous version of xvkbd - this
+   problem is now fixed.
+
+Version 2.4 (2002-10-02)
+
+ - Command can now be assigned to function keys so that clicking
+   on the function key will execute the command instead of
+   sending the string to clients.
+
+ - Assigned string for F1 to F12 with Shift modifier can now be
+   edited on a panel popped up via "Edit Function Keys..." in the
+   main menu.
+
+Version 2.5 (2002-10-12)
+
+ - Quick Modifier feature added - now, it is possible to enter
+   characters with modifiers by pressing a key and then move the
+   pointer.  (suggested by Niklas Rokaeus)
+
+ - ``Lock AltGr?'' entry is added in the main menu.
+
+ - Status of ``Lock Shift?'', ``Lock AltGr'', ``Lock Control, Alt
+   and Meta?'' will be recorded in $HOME/.xvkbd file and it will
+   be read when xvkbd is invoked next time.
+
+Version 2.5a (2003-06-25)
+
+ - ``Fitaly'' layout is now supported - may be useful for PDAs.
+
+Version 2.6 (2004-05-04)
+
+ - Code to adding keysyms which were not found in the keymap
+   table is revised.  xvkbd now avoid to add keysyms in the shifted
+   position of keys which already have a keysym defined in the
+   non-shifted position, and entries in the keymap table which is
+   modified keys will be redefined rather than redefining the
+   entire keymap table.  This change is to avoid possible problem
+   (AltGr key could be effectively disabled) which may caused in
+   some systems where XGetKeyboardMapping() can produce incorrect
+   map when keys have more then two keysyms.
+
+ - If Mode_switch is not defined in the modifier table but
+   ISO_Level3_Shift is defined, xvkbd now attempt to add
+   Mode_switch as the same modifier with ISO_Level3_Shift.
+
+ - Korean layout is now supported.  Although Hangul characters
+   will be displayed on the keys, xvkbd will simply generate
+   alphabet characters when those keys are clicked.  It is
+   intented to be used with "ami" or similar Hangul input
+   program.
+
+ - URL of the xvkbd main page is now changes to
+   http://t-sato.in.coocan.jp/xvkbd/.
+
+Version 2.7 (2005-05-05)
+
+ - Yet another Japanese keyboard layout, JIS X 6002, is now
+   supported.
+
+ - It is now possible to minimize (iconify) the main window even
+   if no window manager is in use.  This feature can be activated
+   by -minimizable option or xvkbd.minimizable resource.
+
+ - Experimental code to keep the xvkbd window always on the top of
+   the display.  This feature can be activated by -always-on-top
+   option, xvkbd.alwaysOnTop resource or the "Always on Top?"
+   entry in the main menu.  Care should be taken as this feature
+   can cause problem in some situations.
+
+ - -text option now support combinations of modifiers and a special
+   key.  For example, -text '\C\A\d' can be used for Control-Alt-
+   Delete key combination.
+
+ - New options: -secure option (xvkbd.secure resource) which
+   disables invocation of external commands, -nonexitable option
+   (xvkbd.nonexitable resource) which inhibits termination of the
+   program, and -xdm option which is equivalent to -secure
+   -nonexitable and maybe useful when run xvkbd from a display
+   manager.
+
+Version 2.7a (2005-05-07)
+
+ - Fixed a problem that xvkbd could cause segmentation fault on
+   startup.
+
+Version 2.8 (2006-09-10)
+
+ - ISO_Level3_Shift is now to be prefered over Mode_switch so
+   that AltGr can be used on relatively new systems where we must
+   use ISO_Level3_Shift instead of Mode_switch.
+
+ - Reference to the target bitmap is changed from
+   /usr/X11R6/include/X11/bitmaps/target to /usr/include/X11/bitmaps/target.
+
+ - New options: -no-back-pointer, -no-sync, -modifiers.
+
+Version 2.9 (2008-03-30)
+
+ - Russian (Cyrillic) keyboard layout supported. (thanks, Victor)
+
+ - New -delay option.
+
+ - \D special sequence in -text can be used to put a delay in
+   specific position.
+
+ - -text can now simulate mouse operation via \x, \y and \m special
+    sequences.
+
+Version 3.0 (2008-05-05)
+
+ - New Property panel.
+
+ - New automatic click feature.
+
+ - Key-click sounds when key is pressed.
+
+Version 3.1 (2010-01-17)
+
+ - Changed the default setting for automatic click to OFF, which
+   was set ON in the previous release in error and caused confu-
+   sion.
+
+ - The keypad is now customizable, too (see XVkbd-strip.ad for
+   the example).
+
+ - Up to 25x25 keys can now be supported both for the main keyboard
+   and the keypad.
+
+ - Able to open the keypad panel when startup, by setting
+   `xvkbd.keypad: false' and `xvkbd.keypadOnly: true'.
+
+ - Fixed errors in some keyboard layout files (Korean, Slovene,
+   UK).
+
+ - A new sample layout file XVkbd-strip.ad.
+
+Version 3.2 (2010-03-14)
+
+ - New option `Behave as Toolbar Window?' on the Property panel,
+   which may make xvkbd works better with some kind of window
+   managers such as Matchbox window manager. (Thanks, Patrick)
+
+ - `Always on Top' will work rather better with window managers
+   which support extended window manager hint
+   _NET_WM_STATE_ABOVE.
+
+ - -window option can now find window which have title match with
+   the specified string.
+
+ - -window option now accept wildcard characters `*' and `?'.
+
+ - Word completion dictionary file to be used with `Word Completion...'
+   can now be specified on the Property panel.
+
+ - Only the words which have two or more characters will be
+   appeared in the word completion list.
+
+ - New -version option to display version information.
+
+Version 3.3 (2012-03-03)
+
+ - -text can now accept \{keysym} so that the specified key can
+   be processed in more primitive manner, and so that modofier
+   keys such as Control_L, Meta_L, etc.  can also be simulated.
+   Also, \{+keysym} and \{-keysym} will now simulate press and
+   release of the key, respectively.
+
+ - New option -remote-display to make xvkbd connect to the specified
+   display when startup.
+
+ - Bug fixed: KP_0 now works.
+
+Version 3.4 (2013-03-31)
+
+ - I hope code to manipulate keys assigned in AlgrGr and Shift-AltGr
+   positions are now fixed.  (Thanks, Paul)
+
+ - Default value of xvkbd.textDelay is now set to 10, as it seems
+   delay of 0 caused problems in some situations.
+
+ - ISO_Left_Tab is assigned to the shifted position of the Tab
+   key on the xvkbd window, so that Shift-Tab can be simulated.
+
+ - New option -no-resize to disable resize of xvkbd window.
+
+Version 3.5 (2013-07-15)
+
+ - Mode_switch and ISO_Level3_Shift should now work better even
+   without XTEST extension.
+
+ - Fixed a problem that "Always on Top" not work at startup.
+
+Version 3.6 (2015-02-15)
+
+ - New -utf16 option - when used with -file option, make xvkbd to
+   accept UTF16 characters in the file.
+
+ - Keyboard layout selected with "Change Keyboard Layout..." will
+   be kept when xvkbd is used next time.
+
+ - Caps Lock now works better for some of the keyboard layouts
+   containing non-ASCII keys.
+
+ - Improved Hebrew keyboard layout (Thanks Genghis Khan)
+
+Version 3.7 (2015-09-12)
+
+ - Right click capability was broken in the recent releases.
+   This bug is now fixed.
+
+Version 3.8 (2017-06-06)
+
+ - When lower-case letters of xvkbd window are clicked while Caps
+   Lock on the physical keyboard is on, by temporary toggling the
+   Caps Lock status, xvkbd now try to generate lower-case letters
+   rather than upper-case letters.
+
+ - If keyboard layout other than Default is selected, text
+   assigned to function keys would  be lost.  This bug is now
+   fixed.
+
+ - When German keymap is selected, after Shift key on the physical
+   keyboard is pressed, xvkbd would generate "y" instead of "z"
+   (and so on).  A workaround for this problem is now implemented.
+
+ - xvkbd sometimes caused an error "X Error of failed request:
+   BadValue (integer parameter out of range for operation) /
+   Major opcode of failed request: 12 (X_ConfigureWindow)" and
+   failed to start.  A workaround for this problem is now implemented.
+
+Version 3.9 (2018-02-25)
+
+ - Modifiers (Alt, etc.) not working with -text option in the
+   recent releases (Debian Bug#891082). This bug is now fixed.
+
+
+Version 4.0 (2019-08-31)
+
+ - Improvements related to Word Completion:
+
+   - English word list with frequency information will be installed
+     with xvkbd, which was derived from:
+     https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists#Project_Gutenberg
+
+   - xvkbd can now "learn" the recently used words, so that those words
+     will be listed near top of the completion list afterword.
+
+   - completion panel can be integrated into the xvkbd's main window,
+     when Integrate Completion Panel? on the Property panel set on.
+
+   - xvkbd will insert blank (' ') automatically between words,
+     when Insert Blank after Completion? on the Property panel set on.
+
+  - Modifier "Super" (keysym Super_L and Super_R) is now supported,
+    although it is not on the supplied keyboard layouts.
+
+    Modifier "Super" can be expressed as "\W" in -text option.
+
+  - Modifiers did not work correctly before first key is pressed.
+    This problem is fixed.
+
+  - To build, "./configure" may be used instead of "xmkmf".
+
+
+Version 4.1 (2020-05-04)
+
+ - xvkbd-4.0 couldn't read word list without frequency information.
+   This bug is not fixed.
+
+ - Too slow startup if word list file is large.
+   This problem is now fixed by making xvkbd to read large word list file
+   on the fly.
+
+ - Modified Makefile.am to add prefix $(DESTDIR) to the destination path.
+
+ - Fixed duplicate definition problem of variable appres.
+
+ 

@@ -1,0 +1,53 @@
+#ifndef XCOMM
+#define XCOMM #
+#endif
+
+
+XCOMM Remove the next line if you want genuine Xaw instead of Xaw3d
+#define XAW3D
+
+XCOMM Remove the next line if you don't want to enable XTEST support
+#define XTEST
+
+XCOMM Remove the next line if you want to disable internationalization
+#define I18N
+
+SRCS = xvkbd.c findwidget.c
+OBJS = xvkbd.o findwidget.o
+DEPLIBS = XawClientDepLibs
+SYS_LIBRARIES = XawClientLibs
+
+#ifdef XAW3D
+D_XAW3D = -DXAW3D
+XAWLIB = -lXaw3d
+#endif
+
+#ifdef XTEST
+D_XTEST = -DUSE_XTEST
+SYS_LIBRARIES = XawClientLibs -lXtst
+#endif
+
+#ifdef I18N
+D_I18N = -DUSE_I18N -DHAVE_SETLOCALE
+#endif
+
+D_OTHER = -DSHAREDIR=\"$(SHAREDIR)\"
+# D_OTHER = -DOLD_MODE_SWITCH_HACK
+
+DEFINES = $(D_XAW3D) $(D_XTEST) $(D_I18N) $(D_OTHER)
+
+SpecialObjectRule(xvkbd.o, xvkbd.c resources.h XVkbd-common.h, )
+ComplexProgramTarget(xvkbd)
+
+InstallAppDefaults(XVkbd)
+
+
+README:
+	make doc
+
+doc:
+	[ -f Makefile.docs ] && make -f Makefile.docs
+
+distclean::
+	rm -f xvkbd-*.tar.gz Makefile
+	[ -f Makefile.docs ] && make -f Makefile.docs cleandir
