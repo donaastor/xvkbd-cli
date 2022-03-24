@@ -5,8 +5,8 @@ The difference:<br>
 &emsp;&emsp;2. I deleted some lines from these 4 files:<br>
 &emsp;&emsp;&emsp;&emsp;1.  xvkbd.c<br>
 &emsp;&emsp;&emsp;&emsp;2.  Imakefile<br>
-&emsp;&emsp;&emsp;&emsp;3.  Xvkbd-common.h<br>
-&emsp;&emsp;&emsp;&emsp;4.  Xvkbd-common.ad<br>
+&emsp;&emsp;&emsp;&emsp;3.  XVkbd-common.h<br>
+&emsp;&emsp;&emsp;&emsp;4.  XVkbd-common.ad<br>
 How to install:<br>
 &emsp;&emsp;mkdir /tmp/i-love-you<br>
 &emsp;&emsp;cd /tmp/i-love-you<br>
