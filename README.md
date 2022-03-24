@@ -3,12 +3,12 @@ This should be a fork or something of xvkbd project, but I can't figure out how 
 The difference:<br>
 &emsp;&emsp;1. Files that are missing are deleted completely<br>
 &emsp;&emsp;2. I deleted some lines from these 4 files:<br>
-&emsp;&emsp;&emsp;&emsp;1.  .<br>
-&emsp;&emsp;&emsp;&emsp;2.  .<br>
-&emsp;&emsp;&emsp;&emsp;3.  .<br>
-&emsp;&emsp;&emsp;&emsp;4.  .<br>
-How to install:
-&emsp;&emsp;mkdir /tmp/i-love-you
-&emsp;&emsp;cd /tmp/i-love-you
-&emsp;&emsp;git clone https://github.com/donaastor/xvkbd-cli.git
+&emsp;&emsp;&emsp;&emsp;1.  xvkbd.c<br>
+&emsp;&emsp;&emsp;&emsp;2.  Imakefile<br>
+&emsp;&emsp;&emsp;&emsp;3.  Xvkbd-common.h<br>
+&emsp;&emsp;&emsp;&emsp;4.  Xvkbd-common.ad<br>
+How to install:<br>
+&emsp;&emsp;mkdir /tmp/i-love-you<br>
+&emsp;&emsp;cd /tmp/i-love-you<br>
+&emsp;&emsp;git clone https://github.com/donaastor/xvkbd-cli.git<br>
 &emsp;&emsp;makepkg -esi
