@@ -11,7 +11,9 @@ The difference:<br>
 &emsp;&emsp;&emsp;&emsp;4.  XVkbd-common.ad<br>
 <br>
 How to install:<br>
-&emsp;&emsp;mkdir /tmp/i-love-you<br>
-&emsp;&emsp;cd /tmp/i-love-you<br>
-&emsp;&emsp;git clone https://github.com/donaastor/xvkbd-cli.git<br>
-&emsp;&emsp;makepkg -esi
+```bash
+mkdir /tmp/i-love-you
+cd /tmp/i-love-you
+git clone --depth=1 https://github.com/donaastor/xvkbd-cli.git
+makepkg -esi
+```
